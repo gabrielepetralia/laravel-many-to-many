@@ -83,8 +83,6 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-      // $technologies = explode("|", $project->used_technologies); to-remove
-
       return view('admin.projects.show', compact('project'));
     }
 

@@ -33,8 +33,9 @@
               @endif
             </a>
           </th>
-          <th scope="col" class="text-start w-25">Name</th>
+          <th scope="col" class="text-start">Name</th>
           <th scope="col">Type</th>
+          <th scope="col" class="text-start">Technologies</th>
           <th scope="col">Is Finished</th>
           <th scope="col">Actions</th>
         </tr>
@@ -52,6 +53,14 @@
             @else
               Type not available
             @endif
+          </td>
+
+          <td class="text-danger text-start">
+            @forelse ($project->technologies as $technology)
+              <img class="tech-logo" src="{{ '/img/tech_logos/' . $technology->slug . '.png' }}" alt="{{ $technology->name }}">
+            @empty
+              Technologies not available
+            @endforelse
           </td>
 
           <td class="fs-5 {{ $project->is_finished ? 'text-success' : 'text-danger' }}">

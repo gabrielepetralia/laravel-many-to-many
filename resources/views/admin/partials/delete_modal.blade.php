@@ -7,10 +7,10 @@
     <div class="modal-content bg-dark">
       <div class="modal-header">
         <h5 class="modal-title text-danger">Attention !</h5>
-        <button type="button" class="btn btn-warning text-white" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></i></button>
+        <button type="button" class="btn btn-danger text-white" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></i></button>
       </div>
       <div class="modal-body text-start">
-        <p class="text-white">Are you sure to delete the {{ $model }} : "<span class="text-warning">{{ $name }}</span>" ?</p>
+        <p class="text-white">Are you sure to delete the {{ $model }} : "<span class="text-danger">{{ $name }}</span>" ?</p>
       </div>
       <div class="modal-footer">
         <form

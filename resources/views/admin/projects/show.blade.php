@@ -42,18 +42,16 @@
             @endif
           </td>
         </tr>
-        {{-- <tr>
-          <td class="fw-semibold">Used Technologies :</td>
+        <tr>
+          <td class="fw-semibold">Technologies :</td>
           <td class="text-danger">
-            @if(!empty($technologies[0]))
-              @foreach ($technologies as $technology)
-                <img class="tech-logo" src="{{ '/img/tech_logos/' . $technology . '.png' }}" alt="{{ $technology }}">
-              @endforeach
-            @else
-              Used technologies not available
-            @endif
+            @forelse ($project->technologies as $technology)
+              <img class="tech-logo" src="{{ '/img/tech_logos/' . $technology->slug . '.png' }}" alt="{{ $technology->name }}">
+            @empty
+              Technologies not available
+            @endforelse
           </td>
-        </tr> --}}
+        </tr>
         <tr>
           <td class="fw-semibold">Is Finished :</td>
           <td class="fs-5 {{ $project->is_finished ? 'text-success' : 'text-danger' }}">

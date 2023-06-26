@@ -18,8 +18,6 @@ class ProjectsTableSeeder extends Seeder
    */
   public function run(Faker $faker)
   {
-    $technologies = ['html','css','sass','js','php','sql','mysql','vue','laravel'];
-
     for ($i = 0; $i < 50; $i++) {
       $new_project = new Project();
 
@@ -27,7 +25,6 @@ class ProjectsTableSeeder extends Seeder
       $new_project->name = str_replace(".", "", $faker->sentence(3));
       $new_project->slug = CustomHelper::generateUniqueSlug($new_project->name, new Project());
       $new_project->description = $faker->text(1000);
-      $new_project->used_technologies = implode("|", $faker->randomElements($technologies, rand(3, count($technologies))));
       $new_project->start_date = $faker->date();
       $new_project->is_finished = rand(0, 1);
       if($new_project->is_finished === 1) {

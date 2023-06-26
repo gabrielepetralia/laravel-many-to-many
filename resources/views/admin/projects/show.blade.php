@@ -42,7 +42,7 @@
             @endif
           </td>
         </tr>
-        <tr>
+        {{-- <tr>
           <td class="fw-semibold">Used Technologies :</td>
           <td class="text-danger">
             @if(!empty($technologies[0]))
@@ -53,7 +53,7 @@
               Used technologies not available
             @endif
           </td>
-        </tr>
+        </tr> --}}
         <tr>
           <td class="fw-semibold">Is Finished :</td>
           <td class="fs-5 {{ $project->is_finished ? 'text-success' : 'text-danger' }}">

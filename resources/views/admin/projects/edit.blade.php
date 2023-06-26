@@ -50,6 +50,26 @@
       </div>
 
       <div class="mb-3">
+        <p class="form-label text-white fw-semibold">Technologies : </p>
+
+        <div class="btn-group" role="group">
+
+          @foreach ($technologies as $technology)
+            <input type="checkbox" class="btn-check" id="technology-{{$loop->iteration}}" autocomplete="off" value="{{$technology->id}}" name="technologies[]"
+             @if(!$errors->any() && $project?->technologies?->contains($technology))
+              checked
+            @elseif($errors->any() && in_array($technology->id, old('technologies', [])))
+              checked
+            @endif>
+            <label class="btn btn-outline-secondary" for="technology-{{$loop->iteration}}" title="{{ $technology->name }}">
+              <img class="tech-logo" src="{{ '/img/tech_logos/' . $technology->slug . '.png' }}" alt="{{ $technology->name }}">
+            </label>
+          @endforeach
+
+        </div>
+      </div>
+
+      <div class="mb-3">
         <label for="img" class="form-label text-white fw-semibold">Image : </label>
         <input
           class="form-control w-25"

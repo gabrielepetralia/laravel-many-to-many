@@ -9,5 +9,8 @@
     <li>
       <a href="{{ route('admin.types.index') }}" class="{{ Route::currentRouteName() === 'admin.types.index' ? "active" : ""}}"><i class="fa-solid fa-folder-tree me-2"></i> Types</a>
     </li>
+    <li>
+      <a href="{{ route('admin.technologies.index') }}" class="{{ Route::currentRouteName() === 'admin.technologies.index' ? "active" : ""}}"><i class="fa-solid fa-laptop-code me-2"></i></i> Technologies</a>
+    </li>
   </ul>
 </aside>

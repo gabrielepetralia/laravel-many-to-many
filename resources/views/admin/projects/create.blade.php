@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="container">
-  <h2 class="fs-4 my-4">Add New Project</h2>
+  <h2 class="fs-4 my-4">Add new Project</h2>
 
   @if ($errors->any())
     <div class="alert alert-danger" role="alert">

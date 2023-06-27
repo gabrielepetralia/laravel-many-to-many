@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Type;
+use App\Models\Technology;
 use App\Helpers\CustomHelper;
-use App\Http\Requests\TypeRequest;
+use App\Http\Requests\TechnologyRequest;
 
-class TypeController extends Controller
+class TechnologyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,9 @@ class TypeController extends Controller
      */
     public function index()
     {
-      $types = Type::all();
+      $technologies = Technology::all();
 
-      return view('admin.types.index', compact('types'));
+      return view('admin.technologies.index', compact('technologies'));
     }
 
     /**
@@ -38,15 +38,15 @@ class TypeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TypeRequest $request)
+    public function store(TechnologyRequest $request)
     {
       $form_data = $request->all();
 
-      $form_data['slug'] = CustomHelper::generateUniqueSlug($form_data['name'], new Type());
+      $form_data['slug'] = CustomHelper::generateUniqueSlug($form_data['name'], new Technology());
 
-      $new_type = Type::create($form_data);
+      $new_type = Technology::create($form_data);
 
-      return redirect()->back()->with('message', "Hai creato correttamente il tipo $new_type->name");
+    return redirect()->back()->with('message', "Hai creato correttamente il tipo $new_type->name");
     }
 
     /**
@@ -78,15 +78,15 @@ class TypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TypeRequest $request, Type $type)
+    public function update(TechnologyRequest $request, Technology $technology)
     {
       $form_data = $request->all();
 
-      $form_data['slug'] = CustomHelper::generateUniqueSlug($form_data['name'], new Type());
+      $form_data['slug'] = CustomHelper::generateUniqueSlug($form_data['name'], new Technology());
 
-      $type->update($form_data);
+      $technology->update($form_data);
 
-      return redirect()->back()->with('message', "The type '$type->name' has been successfully modified !");
+      return redirect()->back()->with('message', "The technology '$technology->name' has been successfully modified !");
     }
 
     /**
@@ -95,9 +95,9 @@ class TypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Type $type)
+    public function destroy(Technology $technology)
     {
-      $type->delete();
-      return redirect()->route('admin.types.index')->with('deleted', "The type '$type->name' has been successfully deleted !");
+      $technology->delete();
+      return redirect()->route('admin.technologies.index')->with('deleted', "The technology '$technology->name' has been successfully deleted !");
     }
 }
